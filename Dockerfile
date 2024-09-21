@@ -15,7 +15,7 @@
 #  See the License for the specific language governing permissions and         #
 #  limitations under the License.                                              #
 # ---------------------------------------------------------------------------- #
-FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/pytorch/pytorch:2.3.0-cuda12.1-cudnn8-devel
+FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/pytorch/pytorch:2.3.0-cuda12.1-cudnn8-devel@sha256:3584aac49cb23ce55c64d9bb96096b22f8b9c94ae5f22de02d7d8581def3ead7
 
 # Set non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y wget bzip2 ca-certificates git
 WORKDIR /app
 
 RUN conda install python=3.10
-RUN pip install -U pip
+RUN pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Install checkpoint store
 # Option 1: Install from test.pypi.org
