@@ -15,6 +15,8 @@
 #  See the License for the specific language governing permissions and         #
 #  limitations under the License.                                              #
 # ---------------------------------------------------------------------------- #
+
+RUN pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/pytorch/pytorch:2.3.0-cuda12.1-cudnn8-devel
 
 # Set non-interactive installation
@@ -27,7 +29,6 @@ RUN apt-get update && apt-get install -y wget bzip2 ca-certificates git
 WORKDIR /app
 
 RUN conda install python=3.10
-RUN pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Install checkpoint store
 # Option 1: Install from test.pypi.org
