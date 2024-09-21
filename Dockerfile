@@ -16,12 +16,12 @@
 #  limitations under the License.                                              #
 # ---------------------------------------------------------------------------- #
 
-RUN pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/pytorch/pytorch:2.3.0-cuda12.1-cudnn8-devel
+# FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/pytorch/pytorch:2.3.0-cuda12.1-cudnn8-devel
 
 # Set non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 # Install necessary packages for wget and HTTPS
 RUN apt-get update && apt-get install -y wget bzip2 ca-certificates git
 
